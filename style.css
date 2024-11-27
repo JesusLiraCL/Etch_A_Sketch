@@ -1,14 +1,35 @@
+.game{
+    display: flex;
+    flex-direction: column;
+    width: 510px;
+    gap: 10px;
+}
+
 .container{
     border: 5px solid black;
     display: flex;
-    width: 600px;
-    aspect-ratio: 1 / 1;
     flex-wrap: wrap;
 }
 
 .grid{
-    box-sizing: border-box;
     aspect-ratio: 1 / 1;
     border: 1px solid black;
+    box-sizing: border-box;
 }
 
+.bar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.colors{
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.color{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+}
