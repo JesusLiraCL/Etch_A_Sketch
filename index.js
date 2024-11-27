@@ -10,6 +10,11 @@ colors.forEach(elem =>{
     const colorDiv = document.createElement("div");
     colorDiv.classList.add("color");
     colorDiv.style.backgroundColor = `${elem}`;
+
+    colorDiv.addEventListener("click", ()=>{
+        colorPicked = elem;
+    });
+
     colorPicker.appendChild(colorDiv);
 });
 
@@ -29,12 +34,8 @@ function createGrid(){
         gridSquare.classList.add("grid");
         gridSquare.style.width = `${500/size}px`;
 
-        gridSquare.addEventListener("mouseover", ()=>{
-            gridSquare.style.backgroundColor = "blue";
-        });
-        
-        gridSquare.addEventListener("mouseleave", ()=>{
-            gridSquare.style.backgroundColor = "white";
+        gridSquare.addEventListener("click", ()=>{
+            gridSquare.style.backgroundColor = colorPicked;
         });
 
         container.appendChild(gridSquare);
