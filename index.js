@@ -5,6 +5,7 @@ const colorPicker = document.createElement("div");
 //const colorPicker = document.createElement("div");
 const colors = ["red", "blue", "green", "black", "white"]
 let colorPicked = "white";
+let isPainting = false;
 
 colors.forEach(elem =>{
     const colorDiv = document.createElement("div");
@@ -34,8 +35,19 @@ function createGrid(){
         gridSquare.classList.add("grid");
         gridSquare.style.width = `${500/size}px`;
 
-        gridSquare.addEventListener("click", ()=>{
+        gridSquare.addEventListener("mousedown", ()=>{
             gridSquare.style.backgroundColor = colorPicked;
+            isPainting = true;
+        });
+
+        gridSquare.addEventListener("mousemove", ()=>{
+            if(isPainting){
+                gridSquare.style.backgroundColor = colorPicked;
+            }
+        });
+
+        gridSquare.addEventListener("mouseup", ()=>{
+            isPainting = false;
         });
 
         container.appendChild(gridSquare);
